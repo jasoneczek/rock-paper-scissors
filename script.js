@@ -49,18 +49,17 @@ function playRound(playerSelection) {
   const computerSelection = getComputerSelection();
   displayComputerSelection(computerSelection);
   
-  if (playerSelection === computerSelection) {
-    return "tie";
-  } else if (
-    (playerSelection === "rock" && computerSelection ===    "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
-  ) {
-    return "player"
-  } else {
-    return "computer"
+  let roundWinner =
+    playerSelection === computerSelection
+      ? "tie"
+      : (playerSelection === "rock" && computerSelection ===    "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+      ? "player"
+      : "computer";
+   console.log("Round winner", roundWinner)
+   return roundWinner;
   }
-}
 
 // Functionality to display Player and Computer Selections
 function displayPlayerSelection(playerSelection) {
