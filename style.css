@@ -193,3 +193,28 @@ main {
 .reset-btn.active {
   display: inline-block;
 }
+
+@media(min-width: 48rem) {
+  body {
+    padding: 0;
+    gap: 0;
+  }
+
+  main,
+  .player-choices-section,
+  .selections {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .choice-btn {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .reset-btn {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
