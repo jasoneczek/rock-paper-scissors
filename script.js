@@ -5,29 +5,20 @@ const playerScoreCounter = document.getElementById('playerScoreCounter');
 const computerScoreCounter = document.getElementById('computerScoreCounter');
 const roundResult = document.getElementById('roundResult');
 const gameResult = document.getElementById('gameResult');
-
-
+const resetBtn = document.getElementById('resetBtn');
 let playerScore = 0;
 let computerScore = 0;
 
+
+
+
+
 function endGame() {
-  if (playerScore === 5) {
-    console.log("Player wins the game.")
-  } else if (computerScore === 5) {
-    console.log("Computer wins the game.")
-  }
-
-  const restart = confirm("Restart game?");
-  if (restart) {
-    playerScore = 0;
-    computerScore = 0;
-    game();
-  } else {
-    console.log("Game over.");
-  }
+  choiceButtons.forEach(button => {
+    button.disabled = true;
+  });
+  resetBtn.classList.add('active');
 }
-
-
 
 function game(playerScore, computerScore) {
   let gameWinner;
@@ -45,7 +36,7 @@ function game(playerScore, computerScore) {
   }
   if (gameWinner) {
     gameResult.innerHTML = `<span class="pink-text">${gameWinner}</span> won the game!`;
-  
+    endGame();
   }
 }
 

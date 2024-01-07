@@ -130,10 +130,6 @@ main {
   cursor: pointer;
 }
 
-.choice-btn:hover {
-  opacity: 0.7;
-}
-
 /* Selection Displays */
 .selections {
   max-width: 100%;
@@ -175,6 +171,7 @@ main {
 
 .pink-text {
   color: var(--prim-pink);
+  font-weight: var(--fw-bold);
 }
 
 /* Game Reset Button */
@@ -211,6 +208,11 @@ main {
   .choice-btn {
     height: 5rem;
     width: 5rem;
+    transition: 0.2s;
+  }
+
+  .choice-btn:hover {
+    opacity: 0.7;
   }
 
   .reset-btn {
