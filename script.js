@@ -1,4 +1,6 @@
 const choiceButtons = document.querySelectorAll('.choice-btn');
+const playerSelectionDisplay = document.getElementById('playerSelectionDisplay');
+const computerSelectionDisplay = document.getElementById('computerSelectionDisplay');
 
 
 let playerScore = 0;
@@ -43,7 +45,9 @@ function game() {
   endGame();
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+  const computerSelection = getComputerSelection();
+  displayComputerSelection(computerSelection);
   
   if (playerSelection === computerSelection) {
     return "tie";
@@ -58,11 +62,21 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+// Functionality to display Player and Computer Selections
+function displayPlayerSelection(playerSelection) {
+  playerSelectionDisplay.innerHTML = `<i class="fa-regular fa-hand-${playerSelection} fa-4x"></i>`;
+}
+
+function displayComputerSelection(computerSelection) {
+  computerSelectionDisplay.innerHTML = `<i class="fa-regular fa-hand-${computerSelection} fa-4x"></i>`;
+}
+
 // Event listener for player choice buttons
 choiceButtons.forEach(choice => {
   choice.addEventListener('click', function() {
     const playerSelection = choice.name;
-    console.log(playerSelection);
+    displayPlayerSelection(playerSelection);
+    playRound(playerSelection);
   })
 })
 
