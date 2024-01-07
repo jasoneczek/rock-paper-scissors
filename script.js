@@ -1,3 +1,6 @@
+const choiceButtons = document.querySelectorAll('.choice-btn');
+
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -20,7 +23,6 @@ function endGame() {
 
 function game() {
   while (playerScore < 5 && computerScore < 5) {
-    const playerSelection = prompt("Paper, Rock, or Scissors?").toLowerCase();
     const computerSelection = getComputerSelection();
     console.log(`Player selection: ${playerSelection}`);
     console.log(`Computer selection: ${computerSelection}`);
@@ -56,6 +58,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+// Event listener for player choice buttons
+choiceButtons.forEach(choice => {
+  choice.addEventListener('click', function() {
+    const playerSelection = choice.name;
+    console.log(playerSelection);
+  })
+})
+
+// Generate random computer selection
 function getComputerSelection() {
   const choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)]; 
