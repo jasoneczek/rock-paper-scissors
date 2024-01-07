@@ -4,6 +4,7 @@ const computerSelectionDisplay = document.getElementById('computerSelectionDispl
 const playerScoreCounter = document.getElementById('playerScoreCounter');
 const computerScoreCounter = document.getElementById('computerScoreCounter');
 const roundResult = document.getElementById('roundResult');
+const gameResult = document.getElementById('gameResult');
 
 
 let playerScore = 0;
@@ -26,26 +27,26 @@ function endGame() {
   }
 }
 
-function game() {
-  while (playerScore < 5 && computerScore < 5) {
-    const computerSelection = getComputerSelection();
-    console.log(`Player selection: ${playerSelection}`);
-    console.log(`Computer selection: ${computerSelection}`);
 
-    let roundWinner = playRound(playerSelection, computerSelection);
-    console.log(`Round winner: ${roundWinner}`);
 
-    if (roundWinner === "player") {
-      playerScore++;
-    } else if (roundWinner === "computer") {
-      computerScore++;
-    }
+function game(playerScore, computerScore) {
+  let gameWinner;
+  const targetScore = 5;
 
-    console.log(`Player score: ${playerScore}`)
-    console.log(`Computer score: ${computerScore}`)
+  switch (true) {
+    case playerScore >= targetScore:
+      roundResult.innerHTML = "";
+      gameWinner = "player";
+      break;
+    case computerScore >= targetScore:
+      roundResult.innerHTML = "";
+      gameWinner = "computer";
+      break;
   }
-
-  endGame();
+  if (gameWinner) {
+    gameResult.innerHTML = `<span class="pink-text">${gameWinner}</span> won the game!`;
+  
+  }
 }
 
 function createIcon(iconClass) {
@@ -79,6 +80,7 @@ function updateScoreBoard(roundWinner) {
   if (roundWinner !== "tie") {
     roundResult.innerHTML = `<span class="pink-text">${roundWinner}</span> wins the round!`;
   }
+  game(playerScore, computerScore)
 }
 
 function playRound(playerSelection) {
@@ -121,4 +123,4 @@ function getComputerSelection() {
   return choices[Math.floor(Math.random() * choices.length)]; 
 }
 
-// game();
+
