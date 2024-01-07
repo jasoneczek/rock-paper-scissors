@@ -61,4 +61,4 @@ function getComputerSelection() {
   return choices[Math.floor(Math.random() * choices.length)]; 
 }
 
-game();
+// game();

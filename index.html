@@ -12,6 +12,55 @@
 </head>
 <body>
 
+  <header>
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <h2 class="scoreboard-heading">Scoreboard</h2>
+      <h3 class="scoreboard-player-heading">Player:</h3>
+      <span id="playerScoreCounter" class="score-icon"></span>
+      <h3 class="scoreboard-computer-heading">Computer:</h3>
+      <span id="computerScoreCounter" class="score-icon"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Player Choice Buttons -->
+    <div class="player-choices-section">
+      <h1 class="player-choices-heading">Choose</h1>
+      <div class="player-choice-buttons">
+        <button id="rockButton" class="btn choice-btn" name="rock">
+          <i class="fa-solid fa-hand-rock fa-3x"></i>
+        </button>
+        <button id="paperButton" class="btn choice-btn" name="paper">
+          <i class="fa-solid fa-hand-paper fa-3x"></i>
+        </button>
+        <button id="scissorsButton" class="btn choice-btn" name="scissors">
+          <i class="fa-solid fa-hand-scissors fa-3x"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Player and Computer Selection Displays -->
+    <div class="selections">
+      <!-- Player Selection Display -->
+      <div class="player-selection-box">
+        <span id="playerSelectionDisplay"></span>
+        <h4 class="player-selection-heading">Player</h4>
+      </div>
+      <!-- Computer Selection Display -->
+      <div class="computer-selection-box">
+        <span id="computerSelectionDisplay"></span>
+        <h4 class="computer-selection-heading">Player</h4>
+      </div>
+    </div>
+    <!-- Round and Game Results Messages -->
+    <div class="results-section">
+      <div id="roundResult" class="round-result"></div>
+      <div id="gameResult" class="game-result"></div>
+    </div>
+    <!-- Reset Game Button -->
+    <button id="resetBtn" class="btn reset-btn">Reset Game</button>
+  </main>
+
 
   <script src="script.js"></script>
   
