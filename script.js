@@ -10,8 +10,23 @@ let playerScore = 0;
 let computerScore = 0;
 
 
+// Event listener for Reset Game button
+resetBtn.addEventListener('click', resetGame);
 
-
+function resetGame() {
+  playerScore = 0; 
+  computerScore = 0;
+  playerScoreCounter.innerHTML = "";
+  computerScoreCounter.innerHTML = "";
+  playerSelectionDisplay.innerHTML = "";
+  computerSelectionDisplay.innerHTML = "";
+  roundResult.innerHTML = "";
+  gameResult.innerHTML = "";
+  choiceButtons.forEach(button => {
+    button.disabled = false;
+  });
+  resetBtn.classList.remove('active');
+}
 
 function endGame() {
   choiceButtons.forEach(button => {
