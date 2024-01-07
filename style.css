@@ -179,7 +179,7 @@ main {
 
 /* Game Reset Button */
 .reset-btn {
-  display: inline-block;
+  display: none;
   background-color: var(--prim-pink);
   color: var(--white);
   font-family: inherit;

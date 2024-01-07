@@ -1,6 +1,9 @@
 const choiceButtons = document.querySelectorAll('.choice-btn');
 const playerSelectionDisplay = document.getElementById('playerSelectionDisplay');
 const computerSelectionDisplay = document.getElementById('computerSelectionDisplay');
+const playerScoreCounter = document.getElementById('playerScoreCounter');
+const computerScoreCounter = document.getElementById('computerScoreCounter');
+const roundResult = document.getElementById('roundResult');
 
 
 let playerScore = 0;
@@ -45,6 +48,39 @@ function game() {
   endGame();
 }
 
+function createIcon(iconClass) {
+  const icon = document.createElement('i');
+  icon.className = iconClass;
+  return icon;
+}
+
+function updateScoreBoard(roundWinner) {
+  let iconClass;
+  let winnerIcon;
+
+  switch (roundWinner) {
+    case "player":
+      playerScore++;
+      iconClass = 'fa-solid fa-face-smile';
+      winnerIcon = createIcon(iconClass);
+      playerScoreCounter.appendChild(winnerIcon);
+      break;
+    case "computer":
+      computerScore++;
+      iconClass = 'fa-solid fa-robot';
+      winnerIcon = createIcon(iconClass);
+      computerScoreCounter.appendChild(winnerIcon);
+      break;
+    case "tie":
+      roundResult.innerHTML = "Tie";
+      break;
+  }
+
+  if (roundWinner !== "tie") {
+    roundResult.innerHTML = `<span class="pink-text">${roundWinner}</span> wins the round!`;
+  }
+}
+
 function playRound(playerSelection) {
   const computerSelection = getComputerSelection();
   displayComputerSelection(computerSelection);
@@ -57,8 +93,8 @@ function playRound(playerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper")
       ? "player"
       : "computer";
-   console.log("Round winner", roundWinner)
-   return roundWinner;
+   
+   updateScoreBoard(roundWinner);
   }
 
 // Functionality to display Player and Computer Selections
